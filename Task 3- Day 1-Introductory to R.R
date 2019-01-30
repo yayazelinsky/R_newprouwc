@@ -62,10 +62,21 @@ lam %>%
   summarise(n = n()) #how many entries for blade_length 
  
  #there is no difference since the are no "na" entries in the blade_length column
+ #Exercise 1
  total_length_half <- lam %>% #trying to avoid changing the original data, thus creating a new dataset termed lam_2
  mutate(total_length_half = total_length/2) %>%
  na.omit %>%
-   filter(total_length_half >100)
+   filter(total_length_half >100)%>%
+   select (site, total_length_half)
+ 
+ #Exercise: Use group_by and summarize () to find the mean , 
+ #and max_blade_length for each size. Also add the number of observations (hint: see "7n")\
+ lam %>%
+   group_by (site) %>%
+   summarise(mean_blade_length = mean(blade_length),
+             min_blade_length = min(blade_
+              
+
  
 
    
