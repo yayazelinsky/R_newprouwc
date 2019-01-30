@@ -1,0 +1,29 @@
+#Day 1
+#Introductory to R 
+#Ayanda 
+#29.01.2019
+#Day_1R part 2
+#calculate a monthly climatology per site
+#Author: A Zelinsky
+#date: 29 January 2019
+
+ibrary(tidyverse)
+library(lubridate)
+
+temp <- read_csv("")
+
+temp2 <- temp %>%
+  dplyr::mutate(month=month(date)) %>%
+  dplyr::group_by(site, month) %>%
+  dplyr::summarise(temp = mean(temp, na.rm = TRUE)) %>%
+  ungroup()
+
+ggplot(data = temp2, aes(x= month, y= temp)) +
+  geom_line() +
+  facet_wrap( = site, nrow = 3) +
+  labs (x = "Month", y = "Temperature (C)")
+  
+
+
+  
+  
